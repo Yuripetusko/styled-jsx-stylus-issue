@@ -1,0 +1,368 @@
+
+// Transition speeds
+
+$fast = 0.15s
+$slow = 0.6s
+
+//== Colors
+//
+
+/* Bridebook NEW colors */
+$space = #1A2C40
+$blue-crush = #537DD7
+$forest = #0EA675
+$mint = #2DBAA7
+$amber = #DD5A59
+$yellow = #E7BE3E
+$mine-shaft = #4A4A4A
+$silver = #9B9B9B
+$alto = #BFBFBF
+$dust = #DAD8D8
+$grey = #E2E2E2
+$soft = #F0F0F0
+$light = #F7F7F7
+$pale-grey = #F7F8FA
+$rose = #f27084
+$rose = #F37084
+$new-gray = #babfc5
+//BB alpha colors and variations
+$space8 = alpha($space, .8)
+$white8 = alpha(white, .65)
+$blue-crush8 = alpha($blue-crush, .8)
+$blue-crushHovered = mix(#000, $blue-crush, 20%)
+$mint-faded = rgba($mint, 0.2)
+$amber-faded = rgba($amber, 0.08)
+
+//State colours
+$brand-success ?=       $mint
+$brand-info ?=          $blue-crush
+$brand-warning ?=       $yellow
+$brand-danger ?=        $amber
+$state-danger-text ?=   $amber
+
+//Social
+$facebook-blue = #3b5998
+$youtube-red = #c51a18
+$twitter-blue = #32506d
+$vimeo-blue = #1cb1e6
+$linkedIn-blue = #187fb8
+$google-red = #ea4335
+$twitter-color = #2aa9f1
+$instagram-color = #517fa4
+$pinterest-color = #c41618
+$blog-orange = #f6831f
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg ?=               #fff
+//** Global text color on `<body>`.
+$text-color ?=            $mine-shaft
+
+//** Global textual link color.
+$link-color ?=            $rose
+//** Link hover color set via `darken()` function.
+$link-hover-color ?=      $rose
+//** Link hover decoration.
+$link-hover-decoration ?= underline
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+quicksand-bold()
+  font-family $font-family-heading
+  font-weight 600
+  -webkit-font-smoothing antialiased
+
+system-fonts()
+  font-family $font-family-sans-serif
+  -webkit-font-smoothing antialiased
+
+$font-family-sans-serif ?= -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+
+$font-family-base ?=       $font-family-sans-serif
+$font-family-heading ?=    "quicksand", $font-family-sans-serif
+$font-family-buttons ?=    "quicksand", $font-family-sans-serif
+
+$font-size-largest ?=      50px
+$font-size-base ?=         16px
+$font-size-large ?=        20px
+$font-size-medium ?=       18px
+$font-size-small ?=        16px
+$font-size-smallest ?=     14px
+$font-size-tiny ?=         10px
+
+$font-size-large-mobile ?= 22px
+
+$font-size-h1 ?=           40px
+$font-size-h2 ?=           30px
+$font-size-h3 ?=           25px
+$font-size-h4 ?=           18px
+$font-size-h5 ?=           14px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base ?=       1.428571429 // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed ?=   floor(($font-size-base * $line-height-base)) // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family ?=   inherit
+$headings-font-weight ?=   400
+$headings-line-height ?=   1.1
+$headings-color ?=         inherit
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+$padding-base-vertical ?=    6px
+$padding-base-horizontal ?=  12px
+
+$padding-large-vertical ?=   10px
+$padding-large-horizontal ?= 16px
+
+$padding-small-vertical ?=   5px
+$padding-small-horizontal ?= 10px
+
+$padding-xs-vertical ?=      1px
+$padding-xs-horizontal ?=    5px
+
+$line-height-large ?=        1.3333333 // extra decimals for Win 8.1 Chrome
+$line-height-small ?=        1.5
+
+$border-radius-base ?=       4px
+$border-radius-large ?=      6px
+$border-radius-small ?=      3px
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color ?=   #fff
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg ?=      $rose
+
+//** Width of the `border` for generating carets that indicator dropdowns.
+$caret-width-base ?=         4px
+//** Carets increase slightly in size for larger components.
+$caret-width-large ?=        5px
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight ?=              400
+
+$btn-default-color ?=            #333
+$btn-default-bg ?=               #fff
+$btn-default-border ?=           #ccc
+
+$btn-primary-color ?=            #fff
+$btn-primary-bg ?=               $rose
+$btn-primary-border ?=           darken($btn-primary-bg, 5%)
+
+$btn-success-color ?=            #fff
+$btn-success-bg ?=               $brand-success
+$btn-success-border ?=           darken($btn-success-bg, 5%)
+
+$btn-info-color ?=               #fff
+$btn-info-bg ?=                  $brand-info
+$btn-info-border ?=              darken($btn-info-bg, 5%)
+
+$btn-warning-color ?=            #fff
+$btn-warning-bg ?=               $brand-warning
+$btn-warning-border ?=           darken($btn-warning-bg, 5%)
+
+$btn-danger-color ?=             #fff
+$btn-danger-bg ?=                $brand-danger
+$btn-danger-border ?=            darken($btn-danger-bg, 5%)
+
+$btn-link-disabled-color ?=      $silver
+$btn-border-radius-base = 100px
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+$input-bg ?=                     #fff
+//** `<input disabled>` background color
+$input-bg-disabled ?=            $soft
+
+//** Text color for `<input>`s
+$input-color ?=                  $mine-shaft
+//** `<input>` border color
+$input-border ?=                 #ccc
+
+// Rename `$input-border-radius` to `$input-border-radius-base` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+$input-border-radius ?=          $border-radius-base
+//** Large `.form-control` border radius
+$input-border-radius-large ?=     $border-radius-large
+//** Small `.form-control` border radius
+$input-border-radius-small ?=    $border-radius-small
+
+//** Border color for inputs on focus
+$input-border-focus ?=           #66afe9
+
+//** Placeholder text color
+$input-color-placeholder ?=      #999
+
+//** Default `.form-control` height
+$input-height-base ?=              ($line-height-computed + ($padding-base-vertical * 2) + 2)
+//** Large `.form-control` height
+$input-height-large ?=             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2)
+//** Small `.form-control` height
+$input-height-small ?=             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2)
+
+//** `.form-group` margin
+$form-group-margin-bottom ?=       15px
+
+$legend-color ?=                   $silver
+$legend-border-color ?=            #e5e5e5
+
+//** Background color for textual input addons
+$input-group-addon-bg ?=           $silver
+//** Border color for textual input addons
+$input-group-addon-border-color ?= $input-border
+
+//** Disabled cursor for form controls and buttons.
+$cursor-disabled ?=                not-allowed
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+$zindex-navbar ?=           1000
+$zindex-dropdown ?=         1000
+$zindex-popover ?=          1060
+$zindex-tooltip ?=          1070
+$zindex-navbar-fixed ?=     1030
+$zindex-modal-background ?= 1040
+$zindex-modal ?=            1050
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs ?=                480px
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min ?=            $screen-xs
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone ?=             $screen-xs-min
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm ?=                768px
+$screen-sm-min ?=            $screen-sm
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet ?=            $screen-sm-min
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md ?=                992px
+$screen-md-min ?=            $screen-md
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop ?=           $screen-md-min
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg ?=                1260px
+$screen-lg-min ?=            $screen-lg
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop ?=        $screen-lg-min
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max ?=            ($screen-sm-min - 1)
+$screen-sm-max ?=            ($screen-md-min - 1)
+$screen-md-max ?=            ($screen-lg-min - 1)
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns ?=              12
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width ?=         20px
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint ?=     $screen-sm-min
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max ?= ($grid-float-breakpoint - 1)
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet ?=           (720px + $grid-gutter-width)
+//** For `$screen-sm-min` and up.
+$container-sm ?=               $container-tablet
+
+// Medium screen / desktop
+$container-desktop ?=          (940px + $grid-gutter-width)
+//** For `$screen-md-min` and up.
+$container-md ?=               $container-desktop
+
+// Large screen / wide desktop
+$container-large-desktop ?=    (1240px + $grid-gutter-width)
+//** For `$screen-lg-min` and up.
+$container-lg ?=               $container-large-desktop
+
+//== Modals
+//
+//##
+
+//** Padding applied to the modal body
+$modal-inner-padding ?=       15px
+
+//** Padding applied to the modal title
+$modal-title-padding ?=       15px
+//** Modal title line-height
+$modal-title-line-height ?=   $line-height-base
+
+//** Background color of modal content area
+$modal-content-bg ?=                           #fff
+//** Modal content border color
+$modal-content-border-color ?=                 rgba(0, 0, 0, .2)
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color ?=        #999
+
+//** Modal backdrop background color
+$modal-backdrop-bg ?=         #000
+//** Modal backdrop opacity
+$modal-backdrop-opacity ?=    .5
+//** Modal header border color
+$modal-header-border-color ?= #e5e5e5
+//** Modal footer border color
+$modal-footer-border-color ?= $modal-header-border-color
+
+$modal-lg ?=                  900px
+$modal-md ?=                  600px
+$modal-sm ?=                  300px
+
+
+//** Horizontal line color.
+$hr-border ?=                 $soft
+
+// bootstrap dependencies
+
+$brand-primary ?=       darken(#428bca, 6.5) // #337ab7
+$state-success-text ?=           #3c763d
+$state-info-text ?=              #31708f
+$state-warning-text ?=           #8a6d3b
+$state-success-bg ?=             #dff0d8
+$state-info-bg ?=                #d9edf7
+$state-warning-bg ?=             #fcf8e3
+$state-danger-bg ?=              #f2dede
+$table-bg-hover ?=               #f5f5f5
+$table-bg-active ?=              $table-bg-hover

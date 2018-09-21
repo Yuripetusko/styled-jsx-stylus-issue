@@ -21,6 +21,7 @@ module.exports = {
               .map(d => path.join(__dirname, d))
               .map(g => glob.sync(g))
               .reduce((a, c) => a.concat(c), []),
+            import: [path.resolve('./styles/themes/variables.styl')],
           },
         },
       ],
